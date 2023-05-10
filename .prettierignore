@@ -1,0 +1,6 @@
+**/.git
+**/.history
+**/node_modules
+**/my-report
+**/test-results
+**/playwright-report
