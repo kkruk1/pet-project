@@ -1,18 +1,23 @@
 import { test, expect } from '@playwright/test';
+import LoginPage from 'pages/LoginPage';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.describe('describe block', () => {
+  let loginPage: LoginPage;
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+  test.beforeEach(async ({ page }) => {
+    loginPage = new LoginPage(page);
+    await page.goto('/', { waitUntil: 'networkidle' });
+  });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  test.afterEach(async ({ page }) => {
+    await page.close();
+  });
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  test('first test', async ({ page }) => {
+    //
+  });
 
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
+  test('second test', async ({ page }) => {
+    //
+  });
 });
