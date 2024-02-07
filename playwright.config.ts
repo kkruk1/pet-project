@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const config: PlaywrightTestConfig = {
-  // globalSetup: './global-setup',
+  // globalSetup: './global-setup1',
   testDir: './tests',
   timeout: 70 * 1000,
   expect: {
