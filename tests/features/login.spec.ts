@@ -14,14 +14,17 @@ test.describe('Login tests', () => {
   });
 
   test('Login test - happy path', async ({ page }) => {
+    await expect(page).toHaveTitle('Swag Labs');
     await loginPage.login(process.env.LOGIN_STANDARD_USER, process.env.PASSWORD);
-    await expect(await page.url()).toBe('https://www.saucedemo.com/inventory.html');
-    await expect(await page.locator('span[class="title"]')).toBeVisible();
+    await expect(page).toHaveURL(`/inventory.html`);
+    await expect(await loginPage.inventoryTitle).toBeVisible();
   });
 
   test('Login test - incorrect password', async ({ page }) => {
     const incorrectPassword = 'incorrectPassword';
     await loginPage.login(process.env.LOGIN_STANDARD_USER, incorrectPassword);
-    await expect(await page.locator('text=Epic sadface: Username and password do not match any user in this service')).toBeVisible();  
+    await expect(
+      await page.locator('text=Epic sadface: Username and password do not match any user in this service')
+    ).toBeVisible();
   });
 });
