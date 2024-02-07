@@ -16,7 +16,8 @@
   },
   "homepage": "https://github.com/kkruk1/pet-project#readme",
   "devDependencies": {
-    "@playwright/test": "^1.33.0",
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.16",
     "typescript": "^5.0.4"
   },
   "dependencies": {

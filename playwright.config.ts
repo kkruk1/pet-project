@@ -5,12 +5,13 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const config: PlaywrightTestConfig = {
-  globalSetup: './global-setup',
+  // globalSetup: './global-setup',
   testDir: './tests',
   timeout: 70 * 1000,
   expect: {
     timeout: 65000
   },
+  
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -23,7 +24,7 @@ const config: PlaywrightTestConfig = {
   use: {
     actionTimeout: 30000,
     navigationTimeout: 30 * 1000,
-    storageState: './.auth/storageState.json',
+    // storageState: './.auth/storageState.json',
     viewport: { width: 1600, height: 1100 },
     baseURL: process.env.BASE_URL,
     video: 'retain-on-failure',
