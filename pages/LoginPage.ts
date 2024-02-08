@@ -5,14 +5,16 @@ export default class LoginPage {
   readonly loginInput: Locator;
   readonly passwordInput: Locator;
   readonly loginBtn: Locator;
-  readonly inventoryTitle: Locator;
+  readonly unsuccessfulLoginErrMsg: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.loginInput = page.locator('id=user-name'); // or page.locator('input[id="user-name"]')
     this.passwordInput = page.locator('id=password');
     this.loginBtn = page.locator('[data-test="login-button"]');
-    this.inventoryTitle = page.locator('span[class="title"]');
+    this.unsuccessfulLoginErrMsg = page.locator(
+      'text=Epic sadface: Username and password do not match any user in this service'
+    );
   }
 
   async login(username: string, password: string) {
