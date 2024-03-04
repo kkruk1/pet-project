@@ -6,5 +6,5 @@ dotenv.config({
 });
 
 export default async function globalSetup() {
-log('Global setup');
+  log('Global setup');
 }
